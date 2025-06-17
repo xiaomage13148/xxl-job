@@ -32,7 +32,6 @@ public class XxlJobAdminApplication {
                 "External访问网址: \thttp://" + ip + ":" + port + path + "\n\t" +
                 "doc访问地址: \t\thttp://localhost:" + port + "/doc.html\n" +
                 "----------------------------------------------------------");
-
     }
 
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <!-- 定义日志文件路径 -->
-    <property name="LOG_PATH" value="/logs"/>
+    <property name="LOG_PATH" value="logs"/>
     <property name="LOG_FILE" value="${LOG_PATH}/xxl-job-admin.log"/>
 
     <!-- 控制台输出 -->

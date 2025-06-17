@@ -88,4 +88,12 @@
 		</trim>
 	</select>
 
+    <select id="findByName" resultType="com.xxl.job.admin.core.model.XxlJobGroup">
+        select
+        <include refid="Base_Column_List"/>
+        from xxl_job_group AS t
+        where t.app_name = #{name}
+		limit 1
+    </select>
+
 </mapper>

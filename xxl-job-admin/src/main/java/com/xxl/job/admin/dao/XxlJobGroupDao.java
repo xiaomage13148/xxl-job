@@ -34,4 +34,11 @@ public interface XxlJobGroupDao {
                              @Param("appname") String appname,
                              @Param("title") String title);
 
+    /**
+     * 根据名称获取执行器
+     *
+     * @param name
+     * @return
+     */
+    XxlJobGroup findByName(@Param("name") String name);
 }

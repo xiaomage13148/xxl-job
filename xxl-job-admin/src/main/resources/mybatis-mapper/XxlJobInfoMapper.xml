@@ -207,6 +207,14 @@
 		WHERE id = #{id}
 	</delete>
 
+	<delete id="deleteJob">
+		delete
+		from xxl_job_info
+		where job_group = #{jobGroup}
+		  and job_desc = #{jobDesc}
+		  and executor_handler = #{executorHandler}
+	</delete>
+
 	<select id="getJobsByGroup" parameterType="java.util.HashMap" resultMap="XxlJobInfo">
 		SELECT <include refid="Base_Column_List" />
 		FROM xxl_job_info AS t
@@ -226,6 +234,14 @@
 			and t.trigger_next_time <![CDATA[ <= ]]> #{maxNextTime}
 		ORDER BY id ASC
 		LIMIT #{pagesize}
+	</select>
+
+	<select id="getJobList" resultType="com.xxl.job.admin.core.model.XxlJobInfo">
+		SELECT <include refid="Base_Column_List" />
+		FROM xxl_job_info AS t
+		where t.job_desc = #{jobDesc}
+		  and t.job_group = #{jobGroup}
+		  and t.executor_handler = #{executorHandler}
 	</select>
 
 	<update id="scheduleUpdate" parameterType="com.xxl.job.admin.core.model.XxlJobInfo"  >

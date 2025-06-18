@@ -148,7 +148,7 @@ public class JobApiController {
     @ResponseBody
     @PermissionLimit(limit = false)
     public ReturnT<String> trigger(@RequestBody XxlJobInfo jobInfo) {
-        return xxlJobService.trigger(xxlJobUser, jobInfo.getId(), null, null);
+        return xxlJobService.customTrigger(xxlJobUser, jobInfo.getId(), null, null);
     }
 
 }

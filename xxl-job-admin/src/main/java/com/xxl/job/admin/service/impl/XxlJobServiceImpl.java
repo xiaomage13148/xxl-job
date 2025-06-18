@@ -417,6 +417,24 @@ public class XxlJobServiceImpl implements XxlJobService {
 		return ReturnT.SUCCESS;
 	}
 
+	@Override
+	public ReturnT<String> customTrigger(XxlJobUser loginUser, int jobId, String executorParam, String addressList) {
+		// permission
+		if (loginUser == null) {
+			return new ReturnT<String>(ReturnT.FAIL.getCode(), I18nUtil.getString("system_permission_limit"));
+		}
+		XxlJobInfo xxlJobInfo = xxlJobInfoDao.loadById(jobId);
+		if (xxlJobInfo == null) {
+			return new ReturnT<String>(ReturnT.FAIL.getCode(), I18nUtil.getString("jobinfo_glue_jobid_unvalid"));
+		}
+		if (!hasPermission(loginUser, xxlJobInfo.getJobGroup())) {
+			return new ReturnT<String>(ReturnT.FAIL.getCode(), I18nUtil.getString("system_permission_limit"));
+		}
+
+		JobTriggerPoolHelper.trigger(jobId, TriggerTypeEnum.MANUAL, -1, null, executorParam, addressList);
+		return ReturnT.SUCCESS;
+	}
+
 	private boolean hasPermission(XxlJobUser loginUser, int jobGroup){
 		if (loginUser.getRole() == 1) {
 			return true;

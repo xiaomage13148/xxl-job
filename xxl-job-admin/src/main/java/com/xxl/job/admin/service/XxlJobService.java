@@ -97,6 +97,17 @@ public interface XxlJobService {
 	public ReturnT<String> trigger(XxlJobUser loginUser, int jobId, String executorParam, String addressList);
 
 	/**
+	 * 自定义任务触发
+	 *
+	 * @param loginUser
+	 * @param jobId
+	 * @param executorParam
+	 * @param addressList
+	 * @return
+	 */
+	public ReturnT<String> customTrigger(XxlJobUser loginUser, int jobId, String executorParam, String addressList);
+
+	/**
 	 * dashboard info
 	 *
 	 * @return

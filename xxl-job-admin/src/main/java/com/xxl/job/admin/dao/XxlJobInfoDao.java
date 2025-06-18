@@ -45,5 +45,23 @@ public interface XxlJobInfoDao {
 
 	public int scheduleUpdate(XxlJobInfo xxlJobInfo);
 
+	/**
+	 * 根据条件删除任务
+	 *
+	 * @param jobGroup
+	 * @param jobDesc
+	 * @param executorHandler
+	 * @return
+	 */
+	int deleteJob(@Param("jobGroup") Integer jobGroup, @Param("jobDesc") String jobDesc, @Param("executorHandler") String executorHandler);
 
+	/**
+	 * 根据条件查询任务
+	 *
+	 * @param jobGroup
+	 * @param jobDesc
+	 * @param executorHandler
+	 * @return
+	 */
+	List<XxlJobInfo> getJobList(@Param("jobGroup") Integer jobGroup, @Param("jobDesc") String jobDesc, @Param("executorHandler") String executorHandler);
 }

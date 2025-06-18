@@ -37,6 +37,15 @@ public interface XxlJobService {
 	public ReturnT<String> add(XxlJobInfo jobInfo, XxlJobUser loginUser);
 
 	/**
+	 * 自定义 添加任务
+	 *
+	 * @param jobInfo
+	 * @param loginUser
+	 * @return
+	 */
+	public ReturnT<String> customAdd(XxlJobInfo jobInfo, XxlJobUser loginUser);
+
+	/**
 	 * update job
 	 *
 	 * @param jobInfo
@@ -51,6 +60,14 @@ public interface XxlJobService {
 	 * @return
 	 */
 	public ReturnT<String> remove(int id);
+
+	/**
+	 * 自定义 删除任务
+	 *
+	 * @param jobInfo
+	 * @return
+	 */
+	public ReturnT<String> customRemove(XxlJobInfo jobInfo);
 
 	/**
 	 * start job

@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: xxl-job-admin
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        namespace: ${NACOS_NAMESPACE:dev}
+        group: ${NACOS_GROUP:dev}
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:password}
+      config:
+        enabled: true
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+        namespace: ${NACOS_NAMESPACE:dev}
+        group: ${NACOS_GROUP:dev}
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:password}
+        prefix: ${spring.application.name}
+        file-extension: yaml
+        timeout: 7000
+        enable-remote-sync-config: true
+server:
+  port: ${SERVER_PORT:8080}
+
+logging:
+  config: classpath:logback-spring.xml

@@ -94,8 +94,8 @@ public class JobApiController {
     @PostMapping("/getGroupId")
     @ResponseBody
     @PermissionLimit(limit = false)
-    public ReturnT<String> getGroupId(@RequestBody XxlJobGroup jobGroup) {
-        XxlJobGroup group = xxlJobGroupDao.findByName(jobGroup.getAppname());
+    public ReturnT<String> getGroupId(@RequestParam String appName) {
+        XxlJobGroup group = xxlJobGroupDao.findByName(appName);
         if (group == null) {
             return new ReturnT<String>(ReturnT.FAIL_CODE, "执行器为空");
         }
